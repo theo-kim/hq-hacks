@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Let's WIN HQ!</title>
+		<style>
+			html {
+				position: relative;
+				height: 100%;
+			}
+			body {
+				background: #ECF0F1;
+				font-family: Helvetica, san-serif;
+				position: relative;
+				height: 100%;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+			div#pri {
+				color: #555;
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+				position: relative;
+				background: #ECF0F1;
+				top: 50%;
+				transform: translateY(-70%);
+				transition: height 0.3s;
+			}
+			div#menu {
+				background: #eee;
+				position: fixed;
+				top: 0;
+				left:-350px;
+				bottom: 0;
+				width: 300px;
+				transition: left 0.3s;
+				padding-top: 20px;
+			}
+			div#menu a:not(#back) {
+				display: block;
+				width: calc(100% - 40px);
+				font-size: 20px;
+				padding: 20px;
+				background: #f0f0f0;
+				border-bottom: #ddd solid 2px;
+				font-weight: bold;
+				color: #555;
+				text-decoration: none;
+				position: relative;
+				transition: padding-left 0.3s;
+			}
+			div#menu a:not(#back):hover {
+				padding-left: 30px;
+			}
+			div#menu a:first-child {
+				border-top: #ddd solid 2px;
+			}
+			h1, h2, h3, h4 {
+				text-align: center;
+			}
+			a {
+				color: inherit;
+			}
+			div#dot {
+				transition: top 1s ease-in;
+			}
+		</style>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+		<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		  (adsbygoogle = window.adsbygoogle || []).push({
+		    google_ad_client: "ca-pub-9488224788305581",
+		    enable_page_level_ads: true
+		  });
+		</script> -->
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115657386-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-115657386-1');
+		</script>
+	</head>
+	<body>
+		<span style="position: absolute; top: 30px;left:30px;color:#555;font-size: 36px;cursor:pointer" onclick="showMenu()"><i class="fas fa-bars"></i></span>
+		<div style="position: absolute;top: 0;bottom:50%;left:50%;width:10px;">
+			<div id="dot" style="height:10px;width:10px;background: #fff;top: 0px;position: absolute;border-radius: 5px;"></div>
+		</div>
+		<div id="pri">
+			<div id = 'drip' style="position: absolute;top: 0;left: 0;right: 0;height: 5px;background: #555;transition: left 0.3s, right 0.3s;"></div>
+			<div id = 'drop' style="position: absolute;top: 0;left: 0;right: 0;height: 5px;background: #555;transition: left 0.3s, right 0.3s;"></div>
+			<h3 id = "status">Nothing right now, check back when a game starts</h3>
+			<div id = "body" style="display: none;">
+				<h1 id = 'Q' style="width: 80%; margin: 20px auto;"></h1>
+				<h2 id = 'A' style="background:#ddd;width: 50%;margin: 10px auto;padding: 10px;border-radius: 20px"></h2>
+				<h2 id = 'B' style="background:#ddd;width: 50%;margin: 10px auto;padding: 10px;border-radius: 20px"></h2>
+				<h2 id = 'C' style="background:#ddd;width: 50%;margin: 10px auto;padding: 10px;border-radius: 20px"></h2>
+			</div>
+		</div>
+		<div style="position: absolute;bottom:0;left:0;right:0;color:#555;text-align: center;padding: 20px;">
+			<h4 style="color:#555;margin:20px auto;">Remember, this is just a good guess, if your common sense / knowledge is different than the answer provided, ALWAYS choose that</h4>
+			&copy; 2018 Innes.xyz | 
+			<a href="javascript:void(0)" onclick="showTerms()">Terms of Service</a> | 
+			<a href="javascript:void(0)" onclick="showPrivacy()">Privacy Policy</a>
+		</div>
+		<div id="filter" style="display: none;background:rgba(0,0,0,0.6);position: fixed; top: 0; left: 0; right: 0;bottom: 0">
+			<span id="x" style="position:absolute;top: 30px;right: calc(50% - 450px); color: #fff; font-size: 36px; cursor: pointer;font-weight: 200" onclick="closeWindows()"><i class="far fa-window-close"></i></span>
+		</div>
+		<div id="menu">
+			<a href="/">HQ GENIE</a>
+			<a href="/demo">DEMO</a>
+			<a href="/about">ABOUT INNES</a>
+			<span id="back" style="position:absolute;top: 50%;right: -50px; color: #eee; font-size: 36px; cursor: pointer;font-weight: 200" onclick="closeMenu()">
+				<i class="fas fa-angle-double-left"></i>
+			</span>
+		</div>
+		<div id="terms" class= "modal" style="position:fixed;max-height:400px;padding: 20px;width: 800px;background:#fff;overflow-y:auto;display:none;top:calc(50% - 300px);left: calc(50% - 420px);border-radius: 10px;">
+			<h1>Innes Terms of Service</h1>
+			<h2>1. Terms</h2>
+			<p>By accessing the website at http://innes.xyz, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.</p>
+			<h2>2. Use License</h2>
+		    <ol>
+				<li>Permission is granted to temporarily download one copy of the materials (information or software) on Innes' website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+					<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+						<li style="margin-left:2em">modify or copy the materials;</li>
+						<li style="margin-left:2em; padding-bottom: 0;">use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
+						<li style="margin-left:2em; padding-bottom: 0;">attempt to decompile or reverse engineer any software contained on Innes' website;</li>
+						<li style="margin-left:2em; padding-bottom: 0;">remove any copyright or other proprietary notations from the materials; or</li>
+						<li style="margin-left:2em; padding-bottom: 0;">transfer the materials to another person or "mirror" the materials on any other server.</li>
+					</ol>
+				</li>
+				<li>This license shall automatically terminate if you violate any of these restrictions and may be terminated by Innes at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</li>
+			</ol>
+			<h2>3. Disclaimer</h2>
+			<ol>
+				<li>The materials on Innes' website are provided on an 'as is' basis. Innes makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</li>
+    			<li>Further, Innes does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.</li>
+    		</ol>
+  			<h2>4. Limitations</h2>
+			<p>In no event shall Innes or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Innes' website, even if Innes or a Innes authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.</p>
+
+			<h2>5. Accuracy of materials</h2>
+			<p>The materials appearing on Innes website could include technical, typographical, or photographic errors. Innes does not warrant that any of the materials on its website are accurate, complete or current. Innes may make changes to the materials contained on its website at any time without notice. However Innes does not make any commitment to update the materials.</p>
+
+			<h2>6. Links</h2>
+			<p>Innes has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Innes of the site. Use of any such linked website is at the user's own risk.</p>
+
+			<h2>7. Modifications</h2>
+			<p>Innes may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
+			<h2>8. Governing Law</h2>
+			<p>These terms and conditions are governed by and construed in accordance with the laws of New York, US and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
+		</div>
+
+		<div id="privacy" class= "modal" style="position:fixed;max-height:400px;padding: 20px;width: 800px;background:#fff;overflow-y:auto;display:none;top:calc(50% - 300px);left: calc(50% - 420px);border-radius: 10px;">
+			<h1>Innes Privacy Policy</h1>
+			<p> Privacy Policy for innes.xyz </p>
+			<p> If you require any more information or have any questions about our privacy policy, please feel free to contact us by email at site@innes.xyz. </p>
+			<p> At innes.xyz, the privacy of our visitors is of extreme importance to us. This privacy policy document outlines the types of personal information is received and collected by innes.xyz and how it is used. </p>
+			<p> <b>Log Files</b><br> Like many other Web sites, innes.xyz makes use of log files. The information inside the log files includes internet protocol ( IP ) addresses, type of browser, Internet Service Provider ( ISP ), date/time stamp, referring/exit pages, and number of clicks to analyze trends, administer the site, track users movement around the site, and gather demographic information. IP addresses, and other such information are not linked to any information that is personally identifiable. </p>
+			<p> <b>Cookies and Web Beacons</b><br> innes.xyz does use cookies to store information about visitors preferences, record user-specific information on which pages the user access or visit, customize Web page content based on visitors browser type or other information that the visitor sends via their browser. </p>
+			<b>DoubleClick DART Cookie</b><br>
+			<p>
+			.:: Google, as a third party vendor, uses cookies to serve ads on innes.xyz.<br>
+			.:: Google's use of the DART cookie enables it to serve ads to your users based on their visit to innes.xyz and other sites on the Internet. <br>
+			.:: Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy at the following URL - http://www.google.com/privacy_ads.html </p>
+			<p> Some of our advertising partners may use cookies and web beacons on our site. Our advertising partners include ....... <br> Google Adsense
+			<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> </p>
+			<p> These third-party ad servers or ad networks use technology to the advertisements and links that appear on innes.xyz send directly to your browsers. They automatically receive your IP address when this occurs. Other technologies ( such as cookies, JavaScript, or Web Beacons ) may also be used by the third-party ad networks to measure the effectiveness of their advertisements and / or to personalize the advertising content that you see. </p>
+			<p> innes.xyz has no access to or control over these cookies that are used by third-party advertisers. </p>
+			<p> You should consult the respective privacy policies of these third-party ad servers for more detailed information on their practices as well as for instructions about how to opt-out of certain practices. innes.xyz's privacy policy does not apply to, and we cannot control the activities of, such other advertisers or web sites. </p>
+			<p> If you wish to disable cookies, you may do so through your individual browser options. More detailed information about cookie management with specific web browsers can be found at the browsers' respective websites. </p>
+		</div>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+		<script>
+		  var socket = io();
+		  var active = false;
+		  socket.on('init', function() {
+		  	active = true;
+		  	document.getElementById('status').innerHTML = "We are fetching the question... <i class='fas fa-spinner fa-spin'></i>";
+		  	document.getElementById('body').style.display = 'none';
+		  	document.getElementById('A').style.background = "#ddd";
+		  	document.getElementById('B').style.background = "#ddd";
+		  	document.getElementById('C').style.background = "#ddd";
+		  })
+		  socket.on('info', function(info) {
+		  	document.getElementById('status').innerHTML = "We are calculating the answer... <i class='fas fa-spinner fa-spin'></i>";
+		  	document.getElementById('body').style.display = 'block';
+		  	document.getElementById('Q').innerHTML = info.Q;
+		  	document.getElementById('A').innerHTML = info.A;
+		  	document.getElementById('B').innerHTML = info.B;
+		  	document.getElementById('C').innerHTML = info.C;
+		  })
+		  socket.on('answer', function(answer) {
+		  	document.getElementById('status').innerHTML = "TADA!";
+		  	if (answer.answer.includes('A')) document.getElementById('A').style.background = "#50C994";
+		  	else if (answer.answer.includes('B')) document.getElementById('B').style.background = "#50C994";
+		  	else if (answer.answer.includes('C')) document.getElementById('C').style.background = "#50C994";
+		  })
+
+		  function showMenu() {
+		  	document.getElementById('filter').style.display = "block";
+		  	document.getElementById('x').style.display = "none";
+		  	document.getElementById('menu').style.left = "0";
+		  }
+
+		  function closeMenu() {
+		  	document.getElementById('filter').style.display = "none";
+		  	document.getElementById('x').style.display = "block";
+		  	document.getElementById('menu').style.left = "-350px";
+		  }
+
+		  function showTerms() {
+		  	document.getElementById('filter').style.display = "block";
+		  	document.getElementById('terms').style.display = "block";
+		  }
+
+		  function showPrivacy() {
+		  	document.getElementById('filter').style.display = "block";
+		  	document.getElementById('privacy').style.display = "block";
+		  }
+
+		  function closeWindows() {
+		  	document.getElementById('filter').style.display = "none";
+		  	var modals = document.getElementsByClassName('modal');
+
+		  	for (var  i = 0; i < modals.length; ++i) {
+		  		modals[i].style.display = "none";
+		  	}
+		  }
+
+		  function getRandomColor() {
+  			var letters = '0123456789ABCDEF';
+  			var color = '#';
+			for (var i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		  }
+
+
+  		  document.getElementById('dot').style.top = "100%";
+  		  var sel = 'drop'
+
+		  setInterval(() => {
+		  	if (!active) {
+			  	document.getElementById('dot').style.display = "none";
+			  	document.getElementById('dot').style.top = "-20px";
+
+			  	setTimeout(() => {
+			  		var color = getRandomColor();
+			  		document.getElementById('dot').style.display = "block";
+			  		document.getElementById('dot').style.background = color;
+			  		setTimeout(() => {
+				  		document.getElementById(sel).style.left = "50%";
+				  		document.getElementById(sel).style.right = "50%";
+				  		document.getElementById('dot').style.top = "100%";
+				  		setTimeout(() => {
+					  		document.getElementById(sel).style.opacity = "1";
+					  		document.getElementById(sel).style.left = "0%";
+					  		document.getElementById(sel).style.right = "0%";
+				  			document.getElementById(sel).style.background = color;
+				  			setTimeout(() => {
+					  			if (sel == 'drip') {
+					  				sel = 'drop'
+						  			document.getElementById(sel).style.opacity = "0";
+						  			document.getElementById('drip').style.zIndex = "98";
+						  			document.getElementById(sel).style.zIndex = "99";
+					  			}
+					  			else {
+					  				sel = 'drip'
+						  			document.getElementById(sel).style.opacity = "0";
+						  			document.getElementById('drop').style.zIndex = "98";
+						  			document.getElementById(sel).style.zIndex = "99";	
+					  			}
+				  			}, 500)
+				  		}, 850)
+			  		}, 100)
+			  	}, 1000)
+		  	}
+
+		  }, 2000)
+
+		</script>
+	</body>
+</html>

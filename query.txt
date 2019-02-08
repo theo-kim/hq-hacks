@@ -1,0 +1,15 @@
+(hello world) = word group
+	word groups are searched for positionally, each word is search for seperately, where score is based on distance between words in content
+
+[subject1 subject2] = word set
+	members of word sets are independent subjects of actions performed
+
+AND = boolean operation, score is multiplied
+
+OR = boolean operation, score is added
+
+IN = procedural operation, procedure is performed on the subject
+
+-> = descriptor operation, right operand only counted if left operand appears in the content, left score adjusted by right proximity and score
+
+{(clause) (clause)} = use curly braces to delimite groups of clauses
